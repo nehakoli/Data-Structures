@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+int partition(int *a,int start,int end)
+{
+int pivot=a[end];
+int partitionindex=start; //set partition index as start initially
+for(int i=start;i<end;i++)
+{
+    if(a[i]<=pivot)
+    {
+        swap(a[i],a[partitionindex]); //swap if element is lesser than pivot
+        index++;
+    }
+}
+swap(a[partitionindex],a[end]);  //swap pivot with element at partition index
+return partitionindex;
+}
+void QuickSort(int *a,int start,int end)
+{
+    if(start<end)
+    {
+        int partitionindex=partition(a,start,end);  //calling partition
+        QuickSort(a,start,partitionindex-1); 
+        QuickSort(a,partitionindex+1,end);
+    }
+}
+int main()
+{
+    int a[15];
+    int n;
+    cout<<"Enter the limit"<<endl;
+    cin>>n;
+    cout<<"Enter numbers in the array "<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    
+    QuickSort(a,0,n-1);
+    for(int i=0;i<n;i++)
+    {
+        cout<<a[i]<<"\t";
+    }
+}
+    
+
