@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[5],i,j,min_index,temp;
+    cout<<"Enter 5 elements of array:\n";
+    
+    for(i=0;i<5;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    for(i=0;i<4;i++)
+    {
+        min_index=i;
+        for(j=i+1;j<5;j++)
+        {
+            if(arr[j]<arr[min_index])
+            {
+                min_index=j;
+            }
+        }
+        temp=arr[i];
+        arr[i]=arr[min_index];
+        arr[min_index]=temp;
+        
+    }
+    
+    cout<<"Sorted Array using Selection Sort:\n";
+    for(i=0;i<5;i++)
+    {
+        cout<<arr[i]<<"\t";
+    }
+}
